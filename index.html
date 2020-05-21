@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        //浅拷贝
+        let obj = {age:10,name:'小明'};
+        let obj_copy = obj;
+        obj_copy.age = 6;
+        console.log(obj); //{age:6,name:'小明'}
+        console.log(obj_copy);//{age:6,name:'小明'}
+
+        //深度拷贝
+        // 方法一 使用es6 Object.assign
+        // let objs = {age:10,name:'小明'};
+        // let objs_copy = Object.assign({},objs);
+        // objs_copy.age = 6;
+        // console.log(objs); //{age:10,name:'小明'}
+        // console.log(objs_copy);//{age:6,name:'小明'}
+
+        // 方法二 直接用对象赋值
+        // let objs = {age:10,name:'小明'};
+        // let objs_copy = {age:objs.age,name:objs.name};
+        // objs_copy.age = 6;
+        // console.log(objs); //{age:10,name:'小明'}
+        // console.log(objs_copy);//{age:6,name:'小明'}
+
+        // 方法3 直接用对象赋值
+        let objs = {age:10,name:'小明'};
+        let objs_copy = JSON.parse(JSON.stringify(objs));
+        objs_copy.age = 6;
+        console.log(objs); //{age:10,name:'小明'}
+        console.log(objs_copy);//{age:6,name:'小明'}
+    </script>
 </body>
+
 </html>
